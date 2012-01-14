@@ -28,6 +28,23 @@
   :type 'string
   :group 'drupal)
 
+(defcustom drupal-file-docstring
+  "/**
+ * @file
+ * %s()
+ */"
+  "Documentation string for file."
+  :type 'string
+  :group 'drupal)
+
+(defcustom drupal-function-docstring
+  "/**
+ * %s()
+ */"
+  "Documentation string for function."
+  :type 'string
+  :group 'drupal)
+
 ;; source: http://drupal.org/node/59868
 (defcustom drupal-php-style
   '((c-offsets-alist . ((case-label . +)
