@@ -73,7 +73,9 @@
   (set 'tab-width 2)
   (set 'c-basic-offset 2)
   (local-set-key (kbd "C-c h") 'drupal-hook-implement)
-  (set 'indent-tabs-mode nil))
+  (set 'indent-tabs-mode nil)
+  (setq show-trailing-whitespace t)
+  (setq show-tab t))
 
 (c-add-style "drupal-php-style" drupal-php-style)
 
