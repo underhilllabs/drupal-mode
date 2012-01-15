@@ -15,8 +15,21 @@
   "Drupal Development."
   :group 'programming)
 
+(defcustom drupal-default-api "7"
+  "Drupal API to Search."
+  :type 'string
+  :group 'drupal)
+
 (defcustom drupal-api-url "http://api.drupal.org/"
   "Drupal API URL."
+  :type 'string
+  :group 'drupal)
+
+(defvar drupal-search-url (concat "http://api.drupal.org/api/search/" drupal-default-api "/")
+  "URL at which to search for documentation on a word.")
+
+(defcustom drupal-manual-path ""
+  "local manual path"
   :type 'string
   :group 'drupal)
 
@@ -90,11 +103,50 @@
   (set 'tab-width 2)
   (set 'c-basic-offset 2)
   (local-set-key (kbd "C-c h") 'drupal-hook-implement)
+  (local-set-key (kbd "C-c C-a") 'drupal-search-documentation)
   (set 'indent-tabs-mode nil)
   (setq show-trailing-whitespace t)
   (setq show-tab t))
 
 (c-add-style "drupal-php-style" drupal-php-style)
+
+
+(defun drupal-search-local-documentation ()
+  "Search the local PHP documentation (i.e. in `php-manual-path')
+for the word at point.  The function returns t if the requested
+documentation exists, and nil otherwise."
+  (interactive)
+  (flet ((php-function-file-for (name)
+                                (expand-file-name
+                                 (format "function.%s.html"
+                                         (replace-regexp-in-string "_" "-" name))
+                                 php-manual-path)))
+    (let ((doc-file (php-function-file-for (current-word))))
+      (and (file-exists-p doc-file)
+           (browse-url doc-file)))))
+
+;; Define function documentation function
+(defun drupal-search-documentation ()
+  "Search drupal api documentation for the word at point.  If
+`drupal-manual-path' has a non-empty string value then the command
+will first try searching the local documentation.  If the
+requested documentation does not exist it will fallback to
+searching the drupal api website."
+  (interactive)
+  (flet ((drupal-search-web-documentation ()
+                                       (browse-url (concat drupal-search-url (current-word)))))
+    (if (and (stringp drupal-manual-path)
+             (not (string= drupal-manual-path "")))
+        (or (drupal-search-local-documentation)
+            (drupal-search-web-documentation))
+      (drupal-search-web-documentation))))
+
+;; Define function for browsing manual
+(defun drupal-browse-api ()
+  "Bring up manual for PHP."
+  (interactive)
+  (browse-url drupal-api-url))
+
 
 (provide 'drupal-mode)
 
