@@ -112,17 +112,7 @@
 (define-key drupal-mode-map "\C-cdc" 'drupal-drush-cc-all)
 (define-key drupal-mode-map "\C-cds" 'drupal-drush-status)
 
-<<<<<<< Updated upstream
-(defvar drupal-mode-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c C-a") 'drupal-search-documentation)
-    (define-key map (kbd "C-c C-b") 'drupal-browse-documentation)
-    (define-key map (kbd "C-c C-c C-a") 'drupal-drush-cc-all)
-    (define-key map (kbd "C-c C-s") 'drupal-drush-status
-    map)))
-=======
 (c-add-style "drupal-php-style" drupal-php-style)
->>>>>>> Stashed changes
 
 (defun drupal-search-local-documentation ()
   "Search the local PHP documentation (i.e. in `php-manual-path')
