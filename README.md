@@ -10,5 +10,7 @@ Add the following to your `.emacs`.
 
 ## Emacs Shortcuts
 
-* C-c C-a: Search Drupal API for string at point.  
-* C-c C-f: Search php.net for string at point.
+* C-c C-a:     Search Drupal API for string at point.  
+* C-c C-f:     Search php.net for string at point.
+* C-c C-c C-a: drush cc all
+* C-c C-s:     drush status
