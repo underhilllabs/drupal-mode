@@ -10,6 +10,7 @@
 ;;; Code:
 
 (require 'w3m)
+(require 'drupal-drush-commands)
 
 (defgroup drupal nil
   "Drupal Development."
@@ -102,14 +103,19 @@
   (c-set-style "drupal-php-style")
   (set 'tab-width 2)
   (set 'c-basic-offset 2)
-  (local-set-key (kbd "C-c h") 'drupal-hook-implement)
-  (local-set-key (kbd "C-c C-a") 'drupal-search-documentation)
   (set 'indent-tabs-mode nil)
   (setq show-trailing-whitespace t)
   (setq show-tab t))
 
 (c-add-style "drupal-php-style" drupal-php-style)
 
+(defvar drupal-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c C-a") 'drupal-search-documentation)
+    (define-key map (kbd "C-c C-b") 'drupal-browse-documentation)
+    (define-key map (kbd "C-c C-c C-a") 'drupal-drush-cc-all)
+    (define-key map (kbd "C-c C-s") 'drupal-drush-status
+    map))
 
 (defun drupal-search-local-documentation ()
   "Search the local PHP documentation (i.e. in `php-manual-path')
@@ -147,7 +153,5 @@ searching the drupal api website."
   (interactive)
   (browse-url drupal-api-url))
 
-
 (provide 'drupal-mode)
-
 ;;; drupal-mode.el ends here
