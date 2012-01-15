@@ -115,7 +115,7 @@
     (define-key map (kbd "C-c C-b") 'drupal-browse-documentation)
     (define-key map (kbd "C-c C-c C-a") 'drupal-drush-cc-all)
     (define-key map (kbd "C-c C-s") 'drupal-drush-status
-    map))
+    map)))
 
 (defun drupal-search-local-documentation ()
   "Search the local PHP documentation (i.e. in `php-manual-path')
