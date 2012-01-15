@@ -9,7 +9,7 @@
 
 ;;; Code:
 
-(require 'w3m)
+;;(require 'w3m)
 (require 'drupal-drush-commands)
 
 (defgroup drupal nil
@@ -107,8 +107,12 @@
   (setq show-trailing-whitespace t)
   (setq show-tab t))
 
-(c-add-style "drupal-php-style" drupal-php-style)
+(define-key drupal-mode-map "\C-cda" 'drupal-search-documentation)
+(define-key drupal-mode-map "\C-cdb" 'drupal-browse-api)
+(define-key drupal-mode-map "\C-cdc" 'drupal-drush-cc-all)
+(define-key drupal-mode-map "\C-cds" 'drupal-drush-status)
 
+<<<<<<< Updated upstream
 (defvar drupal-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-a") 'drupal-search-documentation)
@@ -116,6 +120,9 @@
     (define-key map (kbd "C-c C-c C-a") 'drupal-drush-cc-all)
     (define-key map (kbd "C-c C-s") 'drupal-drush-status
     map)))
+=======
+(c-add-style "drupal-php-style" drupal-php-style)
+>>>>>>> Stashed changes
 
 (defun drupal-search-local-documentation ()
   "Search the local PHP documentation (i.e. in `php-manual-path')
@@ -154,4 +161,5 @@ searching the drupal api website."
   (browse-url drupal-api-url))
 
 (provide 'drupal-mode)
+
 ;;; drupal-mode.el ends here

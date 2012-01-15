@@ -11,14 +11,12 @@
 
 (defun drupal-drush-cc-all (&rest args)
   (interactive)
+  (message "Clearing caches.. one moment.")
   (call-process "drush" nil "*Drush*" nil "cc" "all"))                                                                                    
-
-(defun drupal-drush-cc-all (&rest args)
-  (interactive)
-  (call-process "drush" nil "*Drush*" nil "cc" "all"))
 
 (defun drupal-drush-status (&rest args)
   (interactive)
+  (message "Checking status of site.. one moment.")
   (call-process "drush" nil "*Drush*" nil "status"))
 
 (defun drupal-drush-update-security (&rest args)
