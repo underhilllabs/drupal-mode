@@ -1,4 +1,4 @@
-# Setup
+** Setup
 
 Add the following to your `.emacs`.
 
@@ -8,9 +8,12 @@ Add the following to your `.emacs`.
     (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
     (add-to-list 'auto-mode-alist '("\\.info" . conf-mode))
 
-## Emacs Shortcuts
+** Emacs Shortcuts
 
-* C-c C-a:     Search Drupal API for string at point.  
-* C-c C-f:     Search php.net for string at point.
-* C-c C-c C-a: drush cc all
-* C-c C-s:     drush status
+| C-c da     |Search Drupal API for string at point. |
+| C-c db     |Browse Drupal API Documentation |
+| C-c C-f    |Search php.net for string at point. |
+| C-c dc     |drush cc all |
+| C-c ds     |drush status |
+| C-c dvg    |drush variable-get |
+| C-u C-c dvg |will be prompted for a variable to retrieve. |

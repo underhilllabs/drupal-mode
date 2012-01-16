@@ -21,6 +21,11 @@
   :type 'string
   :group 'drupal)
 
+(defcustom drupal-drush-version "5"
+  "Version of Drush installed."
+  :type 'string
+  :group 'drupal)
+
 (defcustom drupal-api-url "http://api.drupal.org/"
   "Drupal API URL."
   :type 'string
@@ -111,6 +116,7 @@
 (define-key drupal-mode-map "\C-cdb" 'drupal-browse-api)
 (define-key drupal-mode-map "\C-cdc" 'drupal-drush-cc-all)
 (define-key drupal-mode-map "\C-cds" 'drupal-drush-status)
+(define-key drupal-mode-map "\C-cdvg" 'drupal-drush-variable-get)
 
 (c-add-style "drupal-php-style" drupal-php-style)
 

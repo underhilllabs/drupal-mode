@@ -31,4 +31,15 @@
   (interactive)
   (call-process "drush" nil "*Drush*" t "core-requirements"))
 
+(defun drupal-drush-variable-get (n)
+  "Call drush variable get and write result to *Drush* buffer.  If called with a prefix argument, 
+  it will ask for a specific variable to display."
+  (interactive "p")
+  (if (= n 4)
+      (progn 
+        (let ((variable (read-string (message "Which Variable do you want to get: "))))
+          (call-process "drush" nil "*Drush*" t "variable-get" variable)))
+      (call-process "drush" nil "*Drush*" t "variable-get")))
+
+
 (provide 'drupal-drush-commands)
