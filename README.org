@@ -1,21 +1,20 @@
-** Setup
+** Setup Emacs to use drupal-mode
 
 Add the following to your `.emacs`.
 
-#+BEGIN_SRC
     (add-to-list 'load-path "~/.emacs.d/plugins/drupal-mode-el/")
     (require 'drupal-mode)
     (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
     (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
     (add-to-list 'auto-mode-alist '("\\.info" . conf-mode))
-#+END_SRC
 
 ** Emacs Shortcuts
 
-| C-c da     |Search Drupal API for string at point. |
-| C-c db     |Browse Drupal API Documentation |
-| C-c C-f    |Search php.net for string at point. |
-| C-c dc     |drush cc all |
-| C-c ds     |drush status |
-| C-c dvg    |drush variable-get |
-| C-u C-c dvg |will be prompted for a variable to retrieve. |
+| C-c daa     | Add Drush Site Alias                         |
+| C-c db      | Browse Drupal API Documentation              |
+| C-c dc      | drush cc all                                 |
+| C-c dd      | Search Drupal API for string at point.       |
+| C-c ds      | drush status                                 |
+| C-c dvg     | drush variable-get                           |
+| C-u C-c dvg | will be prompted for a variable to retrieve. |
+| C-c C-f     | Search php.net for string at point.          |

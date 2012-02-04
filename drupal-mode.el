@@ -80,6 +80,16 @@
   :type 'string
   :group 'drupal)
 
+(defcustom drush-config-dir "~/.drush/"
+  "Default drush configuration directory."
+  :type 'string
+  :group 'drupal)
+
+(defcustom drush-default-alias-file "~/.drush/aliases.drushrc.php"
+  "Default drush configuration directory."
+  :type 'string
+  :group 'drupal)
+
 (defun drupal-hook-implement (hook-name)
   "Insert API code for HOOK-NAME at point."
   (interactive (list (read-string "Hook name: ")))
@@ -112,9 +122,10 @@
   (setq show-trailing-whitespace t)
   (setq show-tab t))
 
-(define-key drupal-mode-map "\C-cda" 'drupal-search-documentation)
+(define-key drupal-mode-map "\C-cdd" 'drupal-search-documentation)
 (define-key drupal-mode-map "\C-cdb" 'drupal-browse-api)
 (define-key drupal-mode-map "\C-cdc" 'drupal-drush-cc-all)
+(define-key drupal-mode-map "\C-cdaa" 'drupal-drush-alias-add)
 (define-key drupal-mode-map "\C-cds" 'drupal-drush-status)
 (define-key drupal-mode-map "\C-cdvg" 'drupal-drush-variable-get)
 
