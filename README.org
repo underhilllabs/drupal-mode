@@ -1,12 +1,17 @@
 ** Setup Emacs to use drupal-mode
 
-Add the following to your `.emacs`.
+1. Clone the repository into your .emacs.d
 
-    (add-to-list 'load-path "~/.emacs.d/plugins/drupal-mode-el/")
-    (require 'drupal-mode)
-    (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
-    (add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
-    (add-to-list 'auto-mode-alist '("\\.info" . conf-mode))
+cd ~/.emacs.d/plugins
+git clone git@github.com:underhilllabs/drupal-mode.git
+
+2. Add the following to your `.emacs`.
+
+(add-to-list 'load-path "~/.emacs.d/plugins/drupal-mode/")
+(require 'drupal-mode)
+(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("/drupal.*\\.\\(php\\|inc\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("\\.info" . conf-mode))
 
 ** Emacs Shortcuts
 
